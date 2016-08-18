@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:text="@string/question" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="20dp"
         android:textAlignment="center"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:freezesText="true"
         android:text="number"/>
 
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/ansYes"
         android:text="@string/yes"
-        android:minWidth="110dp"/>
+        android:minWidth="110sp"/>
         <!--android:theme="@style/ButtonStyle"/>-->
 
     <Button
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/ansNo"
         android:text="@string/no"
-        android:minWidth="110dp"/>
+        android:minWidth="110sp"/>
 
     </LinearLayout>
     <Button
@@ -60,7 +60,7 @@
         android:textAllCaps="true"
         android:id="@+id/next"
         android:layout_centerHorizontal="true"
-        android:minWidth="120dp"/>
+        android:minWidth="120sp"/>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Score: "
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:layout_gravity="center_horizontal" />
 
         <TextView
@@ -80,7 +80,13 @@
             android:text="score"
             android:id="@+id/score"
             android:freezesText="true"
-            android:textSize="20dp"/>
+            android:textSize="20sp"/>
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/flag"
+        android:freezesText="true"
+        android:visibility="invisible"/>
 
 </LinearLayout>

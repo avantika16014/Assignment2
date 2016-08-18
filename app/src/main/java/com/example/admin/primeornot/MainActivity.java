@@ -18,9 +18,10 @@ public class MainActivity extends AppCompatActivity {
     private Button next;
     private TextView getNum;
     private TextView getScore;
+    private TextView flag;
     Random rand=new Random();
     int randomNo;
-    int flag=0;
+    //int flag=0;
     int score=0;
     public static final String TAG="Result";
 
@@ -32,33 +33,35 @@ public class MainActivity extends AppCompatActivity {
 
         getNum=(TextView) findViewById(R.id.getNumber);
         ansYesButton = (Button)findViewById(R.id.ansYes);
+        flag=(TextView)findViewById(R.id.flag);
         ansNoButton = (Button)findViewById(R.id.ansNo);
         getScore=(TextView)findViewById(R.id.score);
         next = (Button)findViewById(R.id.next);
         //final Random rand=new Random();
-        getScore.setText(" "+score+" ");
-        randomNo=randInt(1,1000);
-        getNum.setText(" "+randomNo+" ");
-
+        if(savedInstanceState==null) {
+            getScore.setText(" " + score + " ");
+            randomNo = randInt(1, 1000);
+            getNum.setText(" " + randomNo + " ");
+            flag.setText(" " + 0 + " ");
+        }
         ansYesButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(flag==0) {
-                    flag = 1;
-                    if (isPrime(randomNo)) {
+                if(flag.getText().toString().equals(" 0 "))
+                {
+                    flag.setText(" "+1+" " );
+                    if (isPrime(randomNo))
+                    {
                         Log.d(TAG, "Correct!");
                         Toast.makeText(getApplicationContext(), "Awesome!",Toast.LENGTH_SHORT).show();
                         score=score+10;
                         getScore.setText(" "+score+" ");
-                    } else {
+                    }
+                    else
+                    {
                         Log.d(TAG, "Incorrect!");
                         Toast.makeText(getApplicationContext(), "Uh Oh!", Toast.LENGTH_SHORT).show();
-                        if(score-5 < 0)
-                            score=0;
-                        else
-                            score-=5;
 
-                        getScore.setText(" "+score+" ");
                     }
                 }
                 else
@@ -71,16 +74,12 @@ public class MainActivity extends AppCompatActivity {
         ansNoButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(flag==0) {
-                    flag=1;
+                if(flag.getText().toString().equals(" 0 ")) {
+                    flag.setText(" "+1+" " );
                     if (isPrime(randomNo)) {
                         Log.d(TAG, "Incorrect!");
                         Toast.makeText(getApplicationContext(), "Uh Oh!", Toast.LENGTH_SHORT).show();
-                        if(score-5 < 0)
-                            score=0;
-                        else
-                            score-=5;
-                        getScore.setText(" "+score+" ");
+
                     } else {
                         Log.d(TAG, "Correct!");
                         Toast.makeText(getApplicationContext(), "Awesome!", Toast.LENGTH_SHORT).show();
@@ -98,12 +97,12 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(flag==0)
+                if(flag.getText().toString().equals(" 0 "))
                     Toast.makeText(getApplicationContext(),"Please select an answer!",Toast.LENGTH_SHORT).show();
                 else {
                     randomNo = randInt(1, 1000);
                     getNum.setText(" " + randomNo + " ");
-                    flag=0;
+                    flag.setText(" "+0+" ");
                 }
             }
         });
