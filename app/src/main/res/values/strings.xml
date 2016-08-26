@@ -4,4 +4,6 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="next">next</string>
+    <string name="hint">Hint</string>
+    <string name="cheat">Cheat</string>
 </resources>
